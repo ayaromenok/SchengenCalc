@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDate>
+
 class QSettings;
 
 class YaSchengenCalc : public QObject
@@ -18,9 +19,13 @@ public slots:
     void addDateRange(const QDate &in, const QDate &out);
     int getInDuration();
     int getAddDuration();
+    void dumpAllInfo();
 
 private:
-    QSettings   *sets;
+    QSettings               *_settings;
+    QVector<qint64>         *_inDates;
+    QVector<qint64>         *_outDates;
+    QVector<qint64>         *_difDates;
 };
 
 #endif // YASCHENGENCALC_H
