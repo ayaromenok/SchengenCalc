@@ -47,7 +47,7 @@ YaSchengenCalc::addDateRange(const QDate &in, const QDate &out)
 
     _inDates->append(inDay);
     _outDates->append(outDay);
-    _difDates->append(outDay-inDay);
+    _difDates->append(outDay-inDay+1);
 }
 
 int
@@ -70,8 +70,10 @@ YaSchengenCalc::dumpAllInfo()
 {
     qInfo() << __PRETTY_FUNCTION__;
 
-    qInfo() << _inDates->toList();
-    qInfo() << _outDates->toList();
-    qInfo() << _difDates->toList();
+    for (int i=0; i< _difDates->length(); i++)
+        qInfo() << QDate::fromJulianDay(_inDates->at(i)).toString()
+                << QDate::fromJulianDay(_outDates->at(i)).toString()
+                << "\t:" <<_difDates->at(i) << "days";
+
 }
 
