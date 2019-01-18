@@ -17,8 +17,10 @@ signals:
 
 public slots:
     void addDateRange(const QDate &in, const QDate &out);
-    int getInDuration();
-    int getAddDuration();
+    qint64 getInDurationFromDate(const QDate &date);
+    qint64 getInDurationFromNow();
+    qint64 getAddDurationFromDate(const QDate &date);
+    qint64 getAddDurationFromNow();
     qint64 get180DaysFromDate(const QDate &date);
     qint64 get180DaysFromNow();
 

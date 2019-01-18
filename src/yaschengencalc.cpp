@@ -50,21 +50,51 @@ YaSchengenCalc::addDateRange(const QDate &in, const QDate &out)
     _difDates->append(outDay-inDay+1);
 }
 
-int
-YaSchengenCalc::getInDuration()
+qint64
+YaSchengenCalc::getInDurationFromDate(const QDate &date)
 {
     qInfo() << __PRETTY_FUNCTION__;
-    return 0;
+    qint64 result = 0;
+    qint64 startDate = get180DaysFromDate(date);
+
+    for (int i=0; i<_difDates->length(); i++){
+        if (_inDates->at(i) >= startDate){
+            qInfo() << "date full in range" << i << _difDates->at(i);
+            result += _difDates->at(i);
+        } else {
+            if (_outDates->at(i) >= startDate){
+                qInfo() << "date part in range" << i << (_outDates->at(i) - startDate);
+                result += _difDates->at(i) - (startDate - _inDates->at(i) );
+            } else {
+                qInfo() << "date Not in range" << i << _difDates->at(i);
+            }
+        }
+    }
+    qInfo() << "days in schengen" << result << "from date" << date;
+    return result;
 }
 
+qint64
+YaSchengenCalc::getInDurationFromNow()
+{
+    return getInDurationFromDate(QDate::currentDate());
+}
 
-int
-YaSchengenCalc::getAddDuration()
+qint64
+YaSchengenCalc::getAddDurationFromDate(const QDate &date)
 {
     qInfo() << __PRETTY_FUNCTION__;
-    return 0;
+    qint64 result = (90 - getInDurationFromDate(date));
+    qInfo() << "days in schengen" << result << "from date" << date;
+
+    return result;
 }
 
+qint64
+YaSchengenCalc::getAddDurationFromNow()
+{
+    return getAddDurationFromDate(QDate::currentDate());
+}
 qint64
 YaSchengenCalc::get180DaysFromDate(const QDate &date)
 {
