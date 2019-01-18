@@ -19,9 +19,13 @@ public slots:
     void addDateRange(const QDate &in, const QDate &out);
     int getInDuration();
     int getAddDuration();
+    qint64 get180DaysFromDate(const QDate &date);
+    qint64 get180DaysFromNow();
+
     void dumpAllInfo();
 
 private:
+
     QSettings               *_settings;
     QVector<qint64>         *_inDates;
     QVector<qint64>         *_outDates;

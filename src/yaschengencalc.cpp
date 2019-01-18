@@ -65,6 +65,22 @@ YaSchengenCalc::getAddDuration()
     return 0;
 }
 
+qint64
+YaSchengenCalc::get180DaysFromDate(const QDate &date)
+{
+    qInfo() << __PRETTY_FUNCTION__
+            << QDate::fromJulianDay(date.toJulianDay()-180);
+    return (date.toJulianDay()-180);
+}
+
+qint64
+YaSchengenCalc::get180DaysFromNow()
+{
+    qInfo() << __PRETTY_FUNCTION__
+            << QDate::fromJulianDay(QDate::currentDate().toJulianDay()-180);
+    return (QDate::currentDate().toJulianDay()-180);
+}
+
 void
 YaSchengenCalc::dumpAllInfo()
 {

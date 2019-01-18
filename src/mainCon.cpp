@@ -17,8 +17,9 @@ int main(int argc, char *argv[])
     sc.addDateRange(QDate(2018,11,25), QDate(2019,1,10));
     sc.getInDuration();
     sc.getAddDuration();
+    sc.get180DaysFromNow();
+    sc.get180DaysFromDate(QDate(2019,1,18));
 
     sc.dumpAllInfo();
-
     return a.exec();
 }
