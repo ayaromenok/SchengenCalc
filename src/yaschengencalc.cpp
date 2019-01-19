@@ -1,3 +1,6 @@
+// Copyright(C) 2019 Andrey Yaromenok, ayaromenok@gmail.com
+// MIT License: https://github.com/ayaromenok/YaSchengenCalc/blob/master/LICENSE
+
 #include "yaschengencalc.h"
 #include <QDebug>
 #include <QSettings>
