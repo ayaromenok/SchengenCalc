@@ -27,14 +27,19 @@ public slots:
 
 private:
     void createTestLayout();
+    void createCurStatusUI();
+    void createVisitedDatesUI();
 
     QVBoxLayout         *_lout;
     QCalendarWidget     *_cal;
     QCalendarWidget     *_calNext;
 
-    QGroupBox           *_gbDates;
-    QGridLayout         *_loutDates;
-    QVector<QDateEdit*>  *_vecDates;
+    QGroupBox           *_gbCurStatus;
+    QGridLayout         *_loutCurStatus;
+
+    QGroupBox           *_gbVisitedDates;
+    QGridLayout         *_loutVisitedDates;
+    QVector<QDateEdit*> *_vecVisitedDates;
 };
 
 #endif // YASCHENGENWIDGET_H
