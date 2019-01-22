@@ -9,8 +9,10 @@
 
 class QHBoxLayout;
 class QVBoxLayout;
+class QGridLayout;
 class QCalendarWidget;
-class QDate;
+class QGroupBox;
+class QDateEdit;
 
 class YaSchengenWidget : public QWidget
 {
@@ -29,6 +31,10 @@ private:
     QVBoxLayout         *_lout;
     QCalendarWidget     *_cal;
     QCalendarWidget     *_calNext;
+
+    QGroupBox           *_gbDates;
+    QGridLayout         *_loutDates;
+    QVector<QDateEdit*>  *_vecDates;
 };
 
 #endif // YASCHENGENWIDGET_H

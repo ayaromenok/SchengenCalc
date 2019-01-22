@@ -10,11 +10,12 @@
 MainWindow::MainWindow(QWidget *parent)
 : QMainWindow(parent)
 {
+    qInfo() << __PRETTY_FUNCTION__;
     YaSchengenWidget *sw = new YaSchengenWidget(this);
     this->setCentralWidget(sw);
 }
 
 MainWindow::~MainWindow()
 {
-
+    qInfo() << __PRETTY_FUNCTION__;
 }
